@@ -1,11 +1,37 @@
 import React from "react";
 import Stock from "./Stock";
 
-function StockContainer() {
+function StockContainer({ currentStocks, handleBuyStock, alphaChecked, priceChecked, stockType}) {
+
+  const sortDisplay = alphaChecked === true ? currentStocks.sort((a, b) => {
+    let fa = a.name.toLowerCase(),
+        fb = b.name.toLowerCase();
+      if (fa < fb) {
+        return -1;
+      } 
+      if (fa > fb) {
+        return 1;
+      } 
+      return 0;
+      }) : currentStocks.sort((a, b) => {
+        let fa = a.price,
+            fb = b.price;
+        return fb - fa;
+      });
+
+  const stockTypeFilter = sortDisplay.filter((stock) => stock.type === stockType)  
+
+  const stockDisplay = stockTypeFilter.map((stock) => {
+
+    return (
+      <Stock key={stock.id} stock={stock} handleBuyStock={handleBuyStock}/>
+    )
+  })
+  
   return (
     <div>
       <h2>Stocks</h2>
-      {/* render stock list here*/}
+      {stockDisplay}
     </div>
   );
 }
