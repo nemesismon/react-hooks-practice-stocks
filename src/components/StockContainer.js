@@ -19,7 +19,7 @@ function StockContainer({ currentStocks, handleBuyStock, alphaChecked, priceChec
         return fb - fa;
       });
 
-  const stockTypeFilter = sortDisplay.filter((stock) => stock.type === stockType)  
+  const stockTypeFilter = sortDisplay.filter((stock) => stockType === stock.type || stockType === "All")  
 
   const stockDisplay = stockTypeFilter.map((stock) => {
 

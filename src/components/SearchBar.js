@@ -31,6 +31,7 @@ function SearchBar({ handleAlphaSort, alphaChecked, handlePriceSort, priceChecke
         <select 
           placeholder="All"
           onChange={handleSortType}>
+          <option value="All">All</option>
           <option value="Tech">Tech</option>
           <option value="Sportswear">Sportswear</option>
           <option value="Finance">Finance</option>

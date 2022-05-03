@@ -18,7 +18,7 @@ function PortfolioContainer({purchasedStock, handleSellStock, alphaChecked, stoc
         return fb - fa;
       });
 
-  const stockTypeFilter = sortDisplay.filter((stock) => stock.type === stockType)
+  const stockTypeFilter = sortDisplay.filter((stock) => stockType === stock.type || stockType === "All")
   
   const displayPurchasedStock = stockTypeFilter.map((stock) => {
     return (
